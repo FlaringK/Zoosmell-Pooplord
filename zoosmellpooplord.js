@@ -23,8 +23,8 @@ const wordList = {
   "rose":"Flighty",
   "lalonde":"Broad",
 
-  "dave":"Insuffrable",
-  "davesprite":"Insuffrablesprite",
+  "dave":"Insufferable",
+  "davesprite":"Insufferablesprite",
   "strider":"Prick",
 
   "jade":"Farmstink",
