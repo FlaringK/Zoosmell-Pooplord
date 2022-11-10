@@ -21,6 +21,7 @@ const wordList = {
   "egbert":"Pooplord",
 
   "rose":"Flighty",
+  "jasprosesprite":"Jasprightysprite",
   "lalonde":"Broad",
 
   "dave":"Insufferable",
@@ -28,6 +29,7 @@ const wordList = {
   "strider":"Prick",
 
   "jade":"Farmstink",
+  "jadesprite":"Farmstinksprite",
   "harley":"Buttlass"
 }
 
