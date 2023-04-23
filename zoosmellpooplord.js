@@ -70,7 +70,31 @@ module.exports = {
           const serchRegex = new RegExp("(?<![a-zA-Z])" + searchList[key] + "(?![a-zA-Z])", "gi")
 
           // == Title ==
-          archive.mspa.story[pageString].title = archive.mspa.story[pageString].title.replace(serchRegex, value)
+          const titleMatches = [...archive.mspa.story[pageString].title.matchAll(serchRegex)].length
+
+          for (let i = 0; i < titleMatches; i++) {
+
+            const wordMatch = archive.mspa.story[pageString].title.match(serchRegex)[0]
+            const wordMatchIndex = [...archive.mspa.story[pageString].title.matchAll(serchRegex)][0].index
+
+            switch(wordMatch) {
+              case wordMatch.toUpperCase():
+                archive.mspa.story[pageString].title = archive.mspa.story[pageString].title.betterReplace(wordMatch.toUpperCase(), value.toUpperCase(), wordMatchIndex)
+                break;
+              case wordMatch.toLowerCase():
+                archive.mspa.story[pageString].title = archive.mspa.story[pageString].title.betterReplace(wordMatch.toLowerCase(), value.toLowerCase(), wordMatchIndex)
+                break;
+              case captitalise(wordMatch):
+                archive.mspa.story[pageString].title = archive.mspa.story[pageString].title.betterReplace(captitalise(wordMatch), captitalise(value), wordMatchIndex)
+                break;
+              default:
+                archive.mspa.story[pageString].title = archive.mspa.story[pageString].title.betterReplace(wordMatch, value.toLowerCase(), wordMatchIndex)
+                break;
+            } 
+
+          }
+
+          // archive.mspa.story[pageString].title = archive.mspa.story[pageString].title.replace(serchRegex, value)
 
           // == Content ==
           const matches = [...archive.mspa.story[pageString].content.matchAll(serchRegex)].length
